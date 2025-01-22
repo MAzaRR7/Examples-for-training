@@ -60,16 +60,19 @@ func main() {
 
 	wg.Add(1)
 	go Deposit(1000, &wg)
+	wg.Wait()
 
 	wg.Add(1)
 	go Withraw(500, &wg)
+	wg.Wait()
 
 	wg.Add(1)
 	go Procent(1, &wg)
+	wg.Wait()
 
 	wg.Add(1)
 	go CheckBalance(&wg)
-
 	wg.Wait()
+
 	fmt.Println("ВСЕ ОПЕРАЦИИ ВЫПОЛНЕНЫ!")
 }
